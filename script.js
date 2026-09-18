@@ -3,8 +3,11 @@ import { Section } from "./components/Section.js";
 import { Image } from "./components/Image.js";
 import { InputField } from "./components/input_field.js";
 import { Div } from "./components/Div.js";
+import { Button } from "./components/Button.js";
+import { p } from "./components/Paragraph.js";
 
 const root = document.querySelector("#root");
+const pokemons = document.querySelectorAll(".pokemon");
 
 // Title
 const title = Section();
@@ -26,7 +29,50 @@ input.classList.add("search_bar");
 search_container.append(input);
 search_container.append(icon);
 
-root.append(title,search_container);
+// Sort button
+const sort_button = Button();
+sort_button.textContent = "#";
+sort_button.classList.add("sort_button");
+search_container.append(sort_button)
+
+root.append(title, search_container);
 
 // List
 const list_container = Div();
+list_container.classList.add("list_container");
+root.append(list_container);
+
+
+let baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
+let pokemonurl = "https://pokeapi.co/api/v2/pokemon/1/";
+let result = pokemonurl.slice(0, -1).split("/").pop();
+
+function extractId(url) {
+    url.slice(0, -1).split("/").pop();
+}
+
+//let id = 1;
+
+for (let id = 1; id < 80; id++) {
+    fetch('https://pokeapi.co/api/v2/pokemon/' + id + "/")
+        .then(response => response.json())
+        .then(data => {
+            //  console.log(data.sprites.front_default);
+            let div = Div();
+            let image = Image(baseUrl+id+".png");
+            let name = h1(data.name);
+            let text = p("#"+id);
+
+            image.classList.add("pokemon_image");
+            name.classList.add("pokemon_name");
+            text.classList.add("pokemon_text");
+
+            const grayDiv = Div();
+            grayDiv.classList.add("gray_div");
+            
+            div.append(text, image, name);
+            div.classList.add("pokemon");
+            list_container.append(div);
+        })
+        .catch(error => console.error(error));
+}
