@@ -79,4 +79,3 @@ for (let id = 1; id < 80; id++) {
         })
         .catch(error => console.error(error));
 }
-
