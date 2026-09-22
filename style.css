@@ -3,11 +3,12 @@ body {
     padding: 0;
 }
 
-#root {
+.root {
     margin: 0 auto;
     width: 360px;
     height: 640px;
     background-color: red;
+    position: relative;
 }
 
 .title_text {
@@ -248,11 +249,13 @@ body {
 .weight_text {
     font-family: 'Poppins';
     color: #666666;
+    margin: 0px;
 }
 
 .height_text {
     font-family: 'Poppins';
     color: #666666;
+    margin: 0px;
 }
 
 .move_text {
@@ -342,4 +345,83 @@ body {
     grid-template-rows: repeat(6, 15px);
     margin-top: 9px;
     row-gap: 2px;
+}
+
+.color-grass {
+    background-color: #74CB48;
+}
+
+.color-poison {
+    background-color: #A43E9E;
+}
+
+.color-bug {
+    background-color: #A7B723;
+}
+
+.color-dark {
+    background-color: #75574C;
+}
+
+.color-dragon {
+    background-color: #7037FF;
+}
+
+.color-electric {
+    background-color: #F9CF30;
+}
+
+.color-fairy {
+    background-color: #E69EAC;
+}
+
+.color-fighting {
+    background-color: #C12239;
+}
+
+.color-fire {
+    background-color: #F57D31;
+}
+
+.color-flying {
+    background-color: #A891EC;
+}
+
+.color-ghost {
+    background-color: #70559B;
+}
+
+.color-normal {
+    background-color: #AAA67F;
+}
+
+.color-ground {
+    background-color: #DEC16B;
+}
+
+.color-ice {
+    background-color: #9AD6DF;
+}
+
+.color-psychic {
+    background-color: #FB5584;
+}
+
+.color-rock {
+    background-color: #B69E31;
+}
+
+.color-steel {
+    background-color: #B7B9D0;
+}
+
+.color-water {
+    background-color: #6493EB;
+}
+
+.big_pokeball {
+    color: white;
+    opacity: 0.4;
+    position: absolute;
+    right: 0px;
 }

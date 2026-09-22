@@ -10,7 +10,7 @@ import { a } from "./components/Anchor.js";
 // https://pokeapi.co/api/v2/pokemon/bulbasaur
 const url = new URL(window.location.href);
 const params = new URLSearchParams(url.search);
-const root = document.querySelector("#root");
+const root = document.querySelector(".root");
 
 let baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 
@@ -57,14 +57,16 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         aboutText.classList.add("about");
         if(data.types.length==1){
             type.innerHTML += `
-                <div class=type>${data.types[0].type.name}</div>
+                <div class="type color-${data.types[0].type.name}">${data.types[0].type.name}</div>
             `;
         } else {
             type.innerHTML += `
-                <div class=type>${data.types[0].type.name}</div>
-                <div class=type>${data.types[1].type.name}</div>
+                <div class="type color-${data.types[0].type.name}">${data.types[0].type.name}</div>
+                <div class="type color-${data.types[1].type.name}">${data.types[1].type.name}</div>
             `;
         }
+
+        root.classList.add("color-"+data.types[0].type.name);
        // type.append(grass_type, poison_type);
 
 
@@ -180,3 +182,8 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         console.log(data);
     })
     .catch(error => console.error(error));
+
+const big_pokeball = Image("assets/pokebal_big.svg");
+big_pokeball.classList.add("big_pokeball");
+
+root.append(big_pokeball)

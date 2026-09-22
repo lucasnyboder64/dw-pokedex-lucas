@@ -7,7 +7,7 @@ import { Button } from "./components/Button.js";
 import { p } from "./components/Paragraph.js";
 import { a } from "./components/Anchor.js";
 
-const root = document.querySelector("#root");
+const root = document.querySelector(".root");
 
 // Title
 const title = Section();
@@ -42,8 +42,6 @@ const list_container = Div();
 list_container.classList.add("list_container");
 root.append(list_container);
 
-
-
 let baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 let pokemonurl = "https://pokeapi.co/api/v2/pokemon/1/";
 let result = pokemonurl.slice(0, -1).split("/").pop();
@@ -56,7 +54,7 @@ function openDetails(){
     alert("test");
 }
 
-for (let id = 1; id < 80; id++) {
+for (let id = 1; id < 200; id++) {
     fetch('https://pokeapi.co/api/v2/pokemon/' + id + "/")
         .then(response => response.json())
         .then(data => {
