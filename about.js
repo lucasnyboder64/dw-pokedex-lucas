@@ -55,7 +55,19 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
 
         const aboutText = h1("About");
         aboutText.classList.add("about");
-        type.append(grass_type, poison_type);
+        if(data.types.length==1){
+            type.innerHTML += `
+                <div class=type>${data.types[0].type.name}</div>
+            `;
+        } else {
+            type.innerHTML += `
+                <div class=type>${data.types[0].type.name}</div>
+                <div class=type>${data.types[1].type.name}</div>
+            `;
+        }
+       // type.append(grass_type, poison_type);
+
+
         card.append(type, aboutText);
 
         const attributes = Div();
@@ -155,7 +167,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
                 <div class=amount style=width:${data.stats[4].base_stat + "px"}></div>
             </div>
 
-                        <div class=meter>
+            <div class=meter>
                 <div class=amount style=width:${data.stats[5].base_stat + "px"}></div>
             </div>
         `;
