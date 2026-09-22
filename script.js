@@ -64,7 +64,7 @@ for (let id = 1; id < 80; id++) {
             let div = Div();
             let image = Image(baseUrl+id+".png");
             let name = a(data.name,"dest.html?name="+data.name);
-            let text = p("#"+id);
+            let text = p("#"+id.toString().padStart(3,"0"));
 
             image.classList.add("pokemon_image");
             name.classList.add("pokemon_name");
