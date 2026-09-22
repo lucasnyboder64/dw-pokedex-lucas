@@ -63,6 +63,7 @@ body {
 .list_container {
     width: 342px;
     height: 506px;
+    padding: 0;
     background-color: white;
     margin-top: 40px;
     border-radius: 8px;

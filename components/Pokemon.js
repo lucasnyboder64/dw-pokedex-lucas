@@ -1,9 +1,31 @@
-export function Pokemon(src, text, name){
-    const pokemonImage = document.createElement("img");
-    let textParagraph = document.createElement("p");
-    let nameParagraph = document.createElement("p");
+let baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 
-    pokemonImage.setAttribute("src", src);
-    textParagraph.textContent = text;
-    nameParagraph.textContent = name;
+function extractId(url) {
+    return url.slice(0, -1).split("/").pop();
 }
+
+export function Pokemon(pokemon){
+    console.log(extractId(pokemon.url));
+    return `
+    <li class="pokemon">
+        <p class="pokemon_text">${extractId(pokemon.url)}</p>
+        <img class="pokemon_image" src="${baseUrl+extractId(pokemon.url)+".png"}">
+        <a class="pokemon_name" href="dest.html?name=${pokemon.name}">${pokemon.name}</a>
+    </li>
+    `;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

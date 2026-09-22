@@ -55,16 +55,14 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
 
         const aboutText = h1("About");
         aboutText.classList.add("about");
-        if(data.types.length==1){
-            type.innerHTML += `
-                <div class="type color-${data.types[0].type.name}">${data.types[0].type.name}</div>
-            `;
-        } else {
-            type.innerHTML += `
-                <div class="type color-${data.types[0].type.name}">${data.types[0].type.name}</div>
-                <div class="type color-${data.types[1].type.name}">${data.types[1].type.name}</div>
-            `;
-        }
+
+        type.innerHTML = `
+            ${data.types.map((singleType)=>{
+                return `
+                    <div class="type color-${singleType.type.name}">${singleType.type.name}</div>
+                `;
+            }).join("")}
+        `;
 
         root.classList.add("color-"+data.types[0].type.name);
        // type.append(grass_type, poison_type);
