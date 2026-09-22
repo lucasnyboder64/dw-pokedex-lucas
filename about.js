@@ -82,7 +82,8 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         const weight_container = Div();
         weight_container.classList.add("weight_container");
 
-        weight_container.append(weight, weight_text);
+        const weight_icon = Image("assets/weight.svg");
+        weight_container.append(weight_icon, weight, weight_text);
 
         attributes.append(weight_container);
 
@@ -91,8 +92,9 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         const height_text = p("Height");
         height_text.classList.add("height_text");
         const height_container = Div();
+        const ruler_icon = Image("assets/ruler.svg");
         height_container.classList.add("height_container");
-        height_container.append(height, height_text);
+        height_container.append(ruler_icon, height, height_text);
 
         attributes.append(height_container);
 

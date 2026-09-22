@@ -134,6 +134,7 @@ body {
     color: #666666;
     justify-self: end;
     font-family: 'Poppins';
+    z-index: 3;
 }
 
 .gray_div {
@@ -291,7 +292,7 @@ body {
 .stats_container {
     width: 43px;
     height: 108px;
-    border-right: 1px solid gray;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .stats_container p {
@@ -318,7 +319,7 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 10px;
     margin-left: 20px;
-    gap:20px;
+    gap: 20px;
 }
 
 .meter {
