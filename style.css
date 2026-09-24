@@ -5,7 +5,8 @@ body {
 
 .root {
     margin: 0 auto;
-    width: 360px;
+    max-width: 360px;
+    width: 100%;
     height: 640px;
     background-color: red;
     position: relative;
@@ -14,15 +15,15 @@ body {
 .title_text {
     color: white;
     font-family: 'Poppins';
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
 .title {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 5fr;
     align-items: center;
-    margin-left: 20px;
+    margin-left: 1.25rem;
 }
 
 .search_bar {
@@ -61,7 +62,8 @@ body {
 }
 
 .list_container {
-    width: 342px;
+    max-width: calc(100% - 20px);
+    width: 100%;
     height: 506px;
     padding: 0;
     background-color: white;
@@ -90,6 +92,16 @@ body {
     border-radius: 8px;
     cursor: pointer;
     position: relative;
+    isolation: isolate;
+}
+
+.pokemon::after {
+    content: "";
+    position: absolute;
+    inset: 50% 0 0;
+    background-color: #EFEFEF;
+    z-index: -1;
+    border-radius: inherit;
 }
 
 .pokemon:hover {
@@ -228,7 +240,6 @@ body {
     font-weight: bold;
     align-self: center;
     justify-self: center;
-    color: #74CB48;
 }
 
 .attributes {
@@ -288,7 +299,6 @@ body {
     font-weight: bold;
     align-self: center;
     justify-self: center;
-    color: #74CB48;
     align-self: start;
     margin: 0;
 }
@@ -300,7 +310,6 @@ body {
 }
 
 .stats_container p {
-    color: #74CB48;
     font-size: 10px;
     font-family: 'Poppins';
     font-weight: bold;
@@ -418,6 +427,150 @@ body {
 
 .color-water {
     background-color: #6493EB;
+}
+
+.color-grass-low {
+    background-color: rgba(116, 203, 72, 0.2);
+}
+
+.color-poison-low {
+    background-color: rgba(164, 62, 158, 0.2);
+}
+
+.color-bug-low {
+    background-color: rgba(167, 183, 35, 0.2);
+}
+
+.color-dark-low {
+    background-color: rgba(117, 87, 76, 0.2);
+}
+
+.color-dragon-low {
+    background-color: rgba(112, 55, 255, 0.2);
+}
+
+.color-electric-low {
+    background-color: rgba(249, 207, 48, 0.2);
+}
+
+.color-fairy-low {
+    background-color: rgba(230, 158, 172, 0.2);
+}
+
+.color-fighting-low {
+    background-color: rgba(193, 34, 57, 0.2);
+}
+
+.color-fire-low {
+    background-color: rgba(245, 125, 49, 0.2);
+}
+
+.color-flying-low {
+    background-color: rgba(168, 145, 236, 0.2);
+}
+
+.color-ghost-low {
+    background-color: rgba(112, 85, 155, 0.2);
+}
+
+.color-normal-low {
+    background-color: rgba(170, 166, 127, 0.2);
+}
+
+.color-ground-low {
+    background-color: rgba(222, 193, 107, 0.2);
+}
+
+.color-ice-low {
+    background-color: rgba(154, 214, 223, 0.2);
+}
+
+.color-psychic-low {
+    background-color: rgba(251, 85, 132, 0.2);
+}
+
+.color-rock-low {
+    background-color: rgba(182, 158, 49, 0.2);
+}
+
+.color-steel-low {
+    background-color: rgba(183, 185, 208, 0.2);
+}
+
+.color-water-low {
+    background-color: rgba(100, 147, 235, 0.2);
+}
+
+.color-grass-text {
+    color: #74CB48;
+}
+
+.color-poison-text {
+    color: #A43E9E;
+}
+
+.color-bug-text {
+    color: #A7B723;
+}
+
+.color-dark-text {
+    color: #75574C;
+}
+
+.color-dragon-text {
+    color: #7037FF;
+}
+
+.color-electric-text {
+    color: #F9CF30;
+}
+
+.color-fairy-text {
+    color: #E69EAC;
+}
+
+.color-fighting-text {
+    color: #C12239;
+}
+
+.color-fire-text {
+    color: #F57D31;
+}
+
+.color-flying-text {
+    color: #A891EC;
+}
+
+.color-ghost-text {
+    color: #70559B;
+}
+
+.color-normal-text {
+    color: #AAA67F;
+}
+
+.color-ground-text {
+    color: #DEC16B;
+}
+
+.color-ice-text {
+    color: #9AD6DF;
+}
+
+.color-psychic-text {
+    color: #FB5584;
+}
+
+.color-rock-text {
+    color: #B69E31;
+}
+
+.color-steel-text {
+    color: #B7B9D0;
+}
+
+.color-water-text {
+    color: #6493EB;
 }
 
 .big_pokeball {

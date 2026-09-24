@@ -8,7 +8,7 @@ export function Pokemon(pokemon){
     console.log(extractId(pokemon.url));
     return `
     <li class="pokemon">
-        <p class="pokemon_text">${extractId(pokemon.url)}</p>
+        <p class="pokemon_text">${"#"+extractId(pokemon.url).padStart(3,"0")}</p>
         <img class="pokemon_image" src="${baseUrl+extractId(pokemon.url)+".png"}">
         <a class="pokemon_name" href="dest.html?name=${pokemon.name}">${pokemon.name}</a>
     </li>

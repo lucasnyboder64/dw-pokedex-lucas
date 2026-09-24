@@ -14,9 +14,12 @@ const root = document.querySelector(".root");
 
 let baseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/";
 
+let currentColor;
+
 fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
     .then(response => response.json())
     .then(data => {
+        currentColor = data.types[0].type.name;
         const title = Div();
         title.classList.add("about_title");
         const name = h1(data.name);
@@ -55,17 +58,18 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
 
         const aboutText = h1("About");
         aboutText.classList.add("about");
+        aboutText.classList.add("color-"+currentColor+"-text");
 
         type.innerHTML = `
-            ${data.types.map((singleType)=>{
-                return `
+            ${data.types.map((singleType) => {
+            return `
                     <div class="type color-${singleType.type.name}">${singleType.type.name}</div>
                 `;
-            }).join("")}
+        }).join("")}
         `;
 
-        root.classList.add("color-"+data.types[0].type.name);
-       // type.append(grass_type, poison_type);
+        root.classList.add("color-" + data.types[0].type.name);
+        // type.append(grass_type, poison_type);
 
 
         card.append(type, aboutText);
@@ -117,30 +121,40 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
 
         const base_stats = p("Base stats");
         base_stats.classList.add("base_stats_text");
+        base_stats.classList.add("color-"+currentColor+"-text");
         card.append(base_stats);
 
         const base_stats_container = Div();
         base_stats_container.classList.add("base_stats_container");
         const stats_container = Div();
         stats_container.classList.add("stats_container");
+
         stats_container.innerHTML += `
-            <p>HP</p>
-            <p>ATK</p>
-            <p>DEF</p>
-            <p>SATK</p>
-            <p>SDEF</p>
-            <p>SPD</p>
+            <p class=color-${currentColor}-text>HP</p>
+            <p class=color-${currentColor}-text>ATK</p>
+            <p class=color-${currentColor}-text>DEF</p>
+            <p class=color-${currentColor}-text>SATK</p>
+            <p class=color-${currentColor}-text>SDEF</p>
+            <p class=color-${currentColor}-text>SPD</p>
         `;
+
         const stats_values = Div();
-        stats_values.innerHTML += `
-            <p>${"0" + data.stats[0].base_stat}</p>
-            <p>${"0" + data.stats[1].base_stat}</p>
-            <p>${"0" + data.stats[2].base_stat}</p>
-            <p>${"0" + data.stats[3].base_stat}</p>
-            <p>${"0" + data.stats[4].base_stat}</p>
-            <p>${"0" + data.stats[5].base_stat}</p>
+
+        stats_values.innerHTML = `
+            ${data.stats.map((stat) => {
+            return `<p>${stat.base_stat}</p>`;
+        }).join("")}
         `;
         stats_values.classList.add("stats_values");
+
+        type.innerHTML = `
+            ${data.types.map((singleType) => {
+            return `
+                    <div class="type color-${singleType.type.name}">${singleType.type.name}</div>
+                `;
+        }).join("")}
+        `;
+
 
         const stats_values_container = Div();
         stats_values_container.append(stats_values);
@@ -148,30 +162,25 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         const meters_section = Div();
         meters_section.classList.add("meters_section");
 
-        meters_section.innerHTML += `
-            <div class=meter>
-                <div class=amount style=width:${data.stats[0].base_stat + "px"}></div>
-            </div>
+        /*
+          type.innerHTML = `
+            ${data.types.map((singleType) => {
+            return `
+                    <div class="type color-${singleType.type.name}">${singleType.type.name}</div>
+                `;
+        }).join("")}
+        `;
 
-            <div class=meter>
-                <div class=amount style=width:${data.stats[1].base_stat + "px"}></div>
-            </div>
+        */
 
-            <div class=meter>
-                <div class=amount style=width:${data.stats[2].base_stat + "px"}></div>
-            </div>
-
-            <div class=meter>
-                <div class=amount style=width:${data.stats[3].base_stat + "px"}></div>
-            </div>
-
-            <div class=meter>
-                <div class=amount style=width:${data.stats[4].base_stat + "px"}></div>
-            </div>
-
-            <div class=meter>
-                <div class=amount style=width:${data.stats[5].base_stat + "px"}></div>
-            </div>
+        meters_section.innerHTML = `
+            ${data.stats.map((meter) => {
+            return `
+                <div class="meter color-${data.types[0].type.name}-low">
+                    <div class="amount color-${currentColor}" style=width:${meter.base_stat + "px"}></div>
+                </div>
+                `;
+        }).join("")}
         `;
 
         base_stats_container.append(stats_container, stats_values_container, meters_section);
