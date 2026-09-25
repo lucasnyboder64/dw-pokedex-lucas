@@ -68,7 +68,7 @@ function render() {
     }).join("")}
             `;
     root.append(pokeList);
-    let test = document.querySelector('.pokemon:nth-last-of-type(1)');
+    let test = document.querySelector('.pokemon:nth-last-of-type(5)');
     observer.observe(test);
 
 }
