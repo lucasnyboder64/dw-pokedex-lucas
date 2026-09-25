@@ -41,7 +41,7 @@ let observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             customOffset += 60;
-            fetch('https://pokeapi.co/api/v2/pokemon?limit=60&offset=' + customOffset)
+            fetch('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=' + customOffset)
                 .then(response => response.json())
                 .then(data => {
                     pokemonArray = [...pokemonArray, ...data.results];
