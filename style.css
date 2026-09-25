@@ -11,6 +11,34 @@ header {
     z-index: 1;
 }
 
+@supports(corner-shape:scoop){
+    header::before {
+        display: block;
+        content: "";
+        width:1.75rem;
+        height: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        background-color: inherit;
+        corner-bottom-right-shape: scoop;
+        position: absolute;
+        top:100%;
+        left: -1.2rem;
+    }
+
+    header::after {
+        display: block;
+        content: "";
+        width:1.75rem;
+        height: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        background-color: inherit;
+        corner-bottom-left-shape: scoop;
+        position: absolute;
+        top:100%;
+        right: -1.2rem;
+    }
+}
+
 footer {
     background-color: red;
     position: fixed;
@@ -21,6 +49,33 @@ footer {
     z-index: 1000;
 }
 
+@supports(corner-shape: scoop){
+    footer::before {
+        display: block;
+        content: "";
+        width:1.75rem;
+        height: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        background-color: inherit;
+        corner-top-right-shape: scoop;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+    }
+
+    footer::after {
+        display: block;
+        content: "";
+        width:1.75rem;
+        height: 0.5rem;
+        border-top-left-radius: 0.5rem;
+        background-color: inherit;
+        corner-top-left-shape: scoop;
+        position: absolute;
+        bottom:100%;
+        right: 0;
+    }
+}
 .root {
     margin: 0 auto;
     border-left: 1.25rem solid red;
@@ -59,10 +114,11 @@ footer {
 
 .icon {
     position: absolute;
-    left: 25px;
+    left: 15px;
     top: 10px;
     width: 12px;
     height: 12px;
+    padding: 1.25rem;
 }
 
 .search_container {
@@ -84,7 +140,7 @@ footer {
 }
 
 .list_container {
-    margin:0 1.25rem;
+    margin: 0 1.25rem;
     padding: 0;
     background-color: white;
     border-radius: 8px;
@@ -116,7 +172,7 @@ footer {
     position: absolute;
     inset: 50% 0 0;
     background-color: #EFEFEF;
-    z-index:-1;
+    z-index: -1;
     border-radius: inherit;
 }
 
