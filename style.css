@@ -4,10 +4,33 @@ body {
     scrollbar-gutter: stable;
 }
 
+header {
+    position: sticky;
+    top: 0px;
+    background-color: red;
+    z-index: 1;
+}
+
+footer {
+    background-color: red;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.25rem;
+    z-index: 1000;
+}
+
 .root {
     margin: 0 auto;
-    background-color: red;
+    border-left: 1.25rem solid red;
+    border-right: 1.25rem solid red;
     position: relative;
+    min-height: 100vh;
+}
+
+.root__detail {
+    height: 100vh;
 }
 
 .title_text {
@@ -23,8 +46,6 @@ body {
     align-items: center;
     margin-inline: 20px;
 }
-
-.title_container 
 
 .search_bar {
     width: 100%;
@@ -63,18 +84,16 @@ body {
 }
 
 .list_container {
-    margin-inline:1.25rem;
+    margin:0 1.25rem;
     padding: 0;
     background-color: white;
-    margin-top: 40px;
     border-radius: 8px;
-    box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);
+    /*box-shadow: inset 0px 1px 3px 1px rgba(0, 0, 0, 0.25);*/
     display: grid;
     grid-template-columns: repeat(3, 90px);
     grid-auto-rows: 94px;
     gap: 20px;
     justify-content: center;
-    overflow-y: scroll;
 }
 
 .pokemon {
@@ -569,6 +588,119 @@ body {
 .color-water-text {
     color: #6493EB;
 }
+
+
+.color-grass-border {
+    color: #74CB48;
+    border-left: 1.25rem solid #74CB48;
+    border-right: 1.25rem solid #74CB48;
+}
+
+.color-poison-border {
+    color: #A43E9E;
+    border-left: 1.25rem solid #A43E9E;
+    border-right: 1.25rem solid #A43E9E;
+}
+
+.color-bug-border {
+    color: #A7B723;
+    border-left: 1.25rem solid #A7B723;
+    border-right: 1.25rem solid #A7B723;
+}
+
+.color-dark-border {
+    color: #75574C;
+    border-left: 1.25rem solid #75574C;
+    border-right: 1.25rem solid #75574C;
+}
+
+.color-dragon-border {
+    color: #7037FF;
+    border-left: 1.25rem solid #7037FF;
+    border-right: 1.25rem solid #7037FF;
+}
+
+.color-electric-border {
+    color: #F9CF30;
+    border-left: 1.25rem solid #F9CF30;
+    border-right: 1.25rem solid #F9CF30;
+}
+
+.color-fairy-border {
+    color: #E69EAC;
+    border-left: 1.25rem solid #E69EAC;
+    border-right: 1.25rem solid #E69EAC;
+}
+
+.color-fighting-border {
+    color: #C12239;
+    border-left: 1.25rem solid #C12239;
+    border-right: 1.25rem solid #C12239;
+}
+
+.color-fire-border {
+    color: #F57D31;
+    border-left: 1.25rem solid #F57D31;
+    border-right: 1.25rem solid #F57D31;
+}
+
+.color-flying-border {
+    color: #A891EC;
+    border-left: 1.25rem solid #A891EC;
+    border-right: 1.25rem solid #A891EC;
+}
+
+.color-ghost-border {
+    color: #70559B;
+    border-left: 1.25rem solid #70559B;
+    border-right: 1.25rem solid #70559B;
+}
+
+.color-normal-border {
+    color: #AAA67F;
+    border-left: 1.25rem solid #AAA67F;
+    border-right: 1.25rem solid #AAA67F;
+}
+
+.color-ground-border {
+    color: #DEC16B;
+    border-left: 1.25rem solid #DEC16B;
+    border-right: 1.25rem solid #DEC16B;
+}
+
+.color-ice-border {
+    color: #9AD6DF;
+    border-left: 1.25rem solid #9AD6DF;
+    border-right: 1.25rem solid #9AD6DF;
+}
+
+.color-psychic-border {
+    color: #FB5584;
+    border-left: 1.25rem solid #FB5584;
+    border-right: 1.25rem solid #FB5584;
+}
+
+.color-rock-border {
+    color: #B69E31;
+    border-left: 1.25rem solid #B69E31;
+    border-right: 1.25rem solid #B69E31;
+}
+
+.color-steel-border {
+    color: #B7B9D0;
+    border-left: 1.25rem solid #B7B9D0;
+    border-right: 1.25rem solid #B7B9D0;
+}
+
+.color-water-border {
+    color: #6493EB;
+    border-left: 1.25rem solid #6493EB;
+    border-right: 1.25rem solid #6493EB;
+}
+
+/*    border-left: 1.25rem solid red;
+    border-right: 1.25rem solid red;*/
+
 
 .big_pokeball {
     color: white;

@@ -68,11 +68,13 @@ fetch('https://pokeapi.co/api/v2/pokemon/' + params.get("name"))
         }).join("")}
         `;
 
+
         root.classList.add("color-" + data.types[0].type.name);
         // type.append(grass_type, poison_type);
-
+        root.classList.add("color-"+data.types[0].type.name+"-border");
 
         card.append(type, aboutText);
+        
 
         const attributes = Div();
         attributes.classList.add("attributes");

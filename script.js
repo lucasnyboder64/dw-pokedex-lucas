@@ -41,7 +41,7 @@ let observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             customOffset += 60;
-            fetch('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=' + customOffset)
+            fetch('https://pokeapi.co/api/v2/pokemon?limit=60&offset=' + customOffset)
                 .then(response => response.json())
                 .then(data => {
                     pokemonArray = [...pokemonArray, ...data.results];
@@ -59,7 +59,9 @@ function extractId(url) {
 
 function render() {
     root.innerHTML = "";
-    root.append(Title("Pokédex", "assets/pokeball.svg"), input);
+    let headerElement = document.createElement("header");
+    headerElement.append(Title("Pokédex", "assets/pokeball.svg"), input);
+    root.append(headerElement);
     let pokeList = document.createElement("ul");
     pokeList.classList.add("list_container");
     pokeList.innerHTML = `
@@ -68,8 +70,11 @@ function render() {
     }).join("")}
             `;
     root.append(pokeList);
-    let test = document.querySelector('.pokemon:nth-last-of-type(5)');
+    let footerElement = document.createElement("footer");
+    root.append(footerElement);
+    let test = document.querySelector('.pokemon:nth-last-of-type(1)');
     observer.observe(test);
+
 
 }
 
